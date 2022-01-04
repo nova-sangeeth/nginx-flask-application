@@ -10,7 +10,7 @@ services:
       - ./backend-nginx-prod.yml:/etc/appconf/nginx.yml:ro
       - ./static:/var/www/webapp-static:ro
     environment:
-      - LETSENCRYPT_EMAIL=admin@dlabs.ai
+      - LETSENCRYPT_EMAIL=admin@ohr.screel.in
     ports:
       - 0.0.0.0:80:80
       - 0.0.0.0:443:443

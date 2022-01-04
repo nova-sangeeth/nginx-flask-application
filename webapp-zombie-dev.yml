@@ -1,6 +1,6 @@
 servers:
   webapp:
-    server_name: dlabs.ai # for development purpose this is not much relevant
+    server_name: application-dev 
     check_host_header: no
     upstream: uwsgi://webapp:3031
     static_files: /var/www/webapp-static
