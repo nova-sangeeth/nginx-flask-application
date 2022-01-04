@@ -1,6 +1,14 @@
 from flask import Flask, render_template
+import config
 
 app = Flask(__name__)
+
+
+environment = "production"
+if environment == "development":
+   cfg = config.DevelopmentConfig()
+elif environment == "production":
+   cfg = config.ProductionConfig()
 
 
 @app.route("/")
