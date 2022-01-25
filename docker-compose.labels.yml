@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  traefik:
+    image: "traefik:v2.6"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - 'letsencrypt:/etc/letsencrypt'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    networks:
+      - main-network
+
+
+# adding flask to work with traefik
+  flask:
+    image: "flask:latest"
+    ports:
+      - "80:80"
+    volumes:
+      - './flask_app:/app'
+    networks:
+      - main-network
+    depends_on:
+      - traefik
+
+    
