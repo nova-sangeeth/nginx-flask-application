@@ -1,21 +1,11 @@
 version: '3'
 
 services:
-  traefik:
-    image: "traefik:v2.4"
-    container_name: "traefik_proxy"
-    restart: always
-    command:
-      - "--providers.docker=true"
-      - "--providers.docker.exposed=false"
-      - "--entryPoints=websecure.address=:443"
-      - "--entryPoints=websecure.address=:80"
-
   nginx:
     image: nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d
+      - conf:/etc/nginx/conf.d
     restart: always

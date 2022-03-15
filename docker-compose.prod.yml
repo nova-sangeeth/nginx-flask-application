@@ -4,13 +4,15 @@ services:
   webapp:
     environment:
       - FLASK_ENV=production
-
   nginx:
+    image: typeai/zombie-nginx
+    restart: always
+    depends_on:
+      - webapp
     volumes:
-      - ./backend-nginx-prod.yml:/etc/appconf/nginx.yml:ro
-      - ./static:/var/www/webapp-static:ro
+      - ./webapp-zombie-prod.yml:/etc/appconf/nginx.yml:ro
     environment:
-      - LETSENCRYPT_EMAIL=admin@ohr.screel.in
+      - "LETSENCRYPT_EMAIL=test@testconf.com"
     ports:
-      - 0.0.0.0:80:80
-      - 0.0.0.0:443:443
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
