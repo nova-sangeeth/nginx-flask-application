@@ -13,8 +13,7 @@ services:
     networks:
       - main-network
 
-
-# adding flask to work with traefik
+  # adding flask to work with traefik
   flask:
     image: "flask:latest"
     ports:
@@ -25,5 +24,3 @@ services:
       - main-network
     depends_on:
       - traefik
-
-    

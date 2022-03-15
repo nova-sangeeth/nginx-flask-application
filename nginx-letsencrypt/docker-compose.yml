@@ -11,7 +11,7 @@ services:
       - "--entryPoints=websecure.address=:443"
       - "--entryPoints=websecure.address=:80"
 
-  nginx: 
+  nginx:
     image: nginx
     ports:
       - "80:80"
